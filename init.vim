@@ -14,6 +14,7 @@ call plug#end()
 set number
 set hlsearch
 set smartindent
+set list
 set laststatus=2
 set wildmenu
 set ruler
