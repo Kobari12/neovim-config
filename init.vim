@@ -52,8 +52,7 @@ inoremap {<Enter> {}<Left><CR><ESC><S-o>
 noremap O :<C-u>call append(expand('.'), '')<Cr>j
 
 autocmd FileType tex inoremap $ $$<LEFT> 
-autocmd FileType tex nmap lb :VimtexCompile<CR> 
-autocmd FileType tex nmap lc :!sh ~/bin/texclean.sh<CR><Enter>
+" let g:vimtex_compiler_latexmk = {'options': [ ]}
 
 autocmd TermOpen * startinsert
 tnoremap <Esc> <C-\><C-n>
@@ -61,17 +60,4 @@ tnoremap <Esc> <C-\><C-n>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#buffer_idx_format = {'0': '0 ','1': '1 ','2': '2 ','3': '3 ','4': '4 ','5': '5 ','6': '6 ','7': '7 ','8': '8 ','9': '9 '}
-let g:latex_latexmk_options = '-pdf'
-let g:vimtex_compiler_latexmk = {
-\ 'background': 1,
-\ 'build_dir': './out/',
-\ 'continuous': 1,
-\ 'options': [
-\    '-pdfdvi',
-\    '-verbose',
-\    '-file-line-error',
-\    '-synctex=1',
-\    '-interaction=nonstopmode',
-\],
-\}
 
