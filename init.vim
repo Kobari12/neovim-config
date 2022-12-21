@@ -31,7 +31,6 @@ Jetpack 'machakann/vim-highlightedyank'
 Jetpack 'junegunn/vim-easy-align'
 Jetpack 'jiangmiao/auto-pairs'
 Jetpack 'ervandew/supertab'
-Jetpack 'bronson/vim-trailing-whitespace'
 call jetpack#end()
 
 set number
@@ -53,7 +52,6 @@ set clipboard=unnamed
 set helplang=ja
 set syntax=on
 
-autocmd TermOpen * startinsert
 tnoremap <Esc> <C-\><C-n>
 noremap O :<C-u>call append(expand('.'), '')<Cr>j
 
@@ -64,16 +62,15 @@ nmap sj <C-w>j
 nmap sk <C-w>k
 nmap sl <C-w>l
 nmap sh <C-w>h
-nmap ss <C-w>s
-
-let g:coc_filetype_map = {'tex': 'latex'}
-
-let g:docker_compose_open_terminal_way = 'top'
+nmap ss <C-w>s sj
+nmap sv <C-w>v sl
 
 let g:fern#renderer = 'nerdfont'
 nnoremap ff :Fern . -reveal=% -drawer -toggle -width=40<CR>
 colorscheme nightfox
 
+let g:coc_filetype_map = {'tex': 'latex'}
+let g:docker_compose_open_terminal_way = 'top'
 let g:highlightedyank_highlight_duration = 150
 
 let g:airline#extensions#tabline#enabled = 1
