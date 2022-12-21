@@ -1,23 +1,48 @@
 
-call plug#begin('~/.config/nvim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tomtom/tcomment_vim'
-Plug 'lervag/vimtex'
-" Plug 'vim-scripts/vim-auto-save'
-" Plug 'skanehira/preview-markdown.vim'
-call plug#end()
+call jetpack#begin('~/.config/nvim/plugged')
+Jetpack 'neoclide/coc.nvim', {'branch': 'release'}
+Jetpack 'preservim/nerdtree'
+Jetpack 'vim-airline/vim-airline'
+Jetpack 'vim-airline/vim-airline-themes'
+Jetpack 'ryanoasis/vim-devicons'
+Jetpack 'tpope/vim-commentary'
+Jetpack 'tpope/vim-fugitive'
+Jetpack 'tpope/vim-surround'
+Jetpack 'airblade/vim-gitgutter'
+Jetpack 'lervag/vimtex'
+Jetpack 'vim-jp/vimdoc-ja'
+Jetpack 'nvim-lua/plenary.nvim'
+Jetpack 'nvim-telescope/telescope.nvim'
+Jetpack 'airblade/vim-rooter'
+Jetpack 'skanehira/translate.vim'
+Jetpack 'skanehira/docker-compose.vim'
+Jetpack 'EdenEast/nightfox.nvim'
+Jetpack 'junegunn/fzf.vim'
+Jetpack 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Jetpack 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+Jetpack 'lambdalisue/fern.vim'
+Jetpack 'lambdalisue/fern-git-status.vim'
+Jetpack 'lambdalisue/nerdfont.vim'
+Jetpack 'lambdalisue/fern-renderer-nerdfont.vim'
+Jetpack 'lambdalisue/glyph-palette.vim'
+Jetpack 'vim-scripts/vim-auto-save'
+Jetpack 'skanehira/preview-markdown.vim'
+Jetpack 'machakann/vim-highlightedyank'
+Jetpack 'junegunn/vim-easy-align'
+Jetpack 'jiangmiao/auto-pairs'
+Jetpack 'ervandew/supertab'
+Jetpack 'bronson/vim-trailing-whitespace'
+call jetpack#end()
 
 set number
 set hlsearch
 set smartindent
 set list
-set laststatus=2
+set showmatch
 set wildmenu
 set ruler
+set ic
+set laststatus=2
 set history=1000
 set encoding=utf8
 set mouse=a
@@ -25,37 +50,31 @@ set tabstop=4
 set shiftwidth=4
 set ttimeoutlen=50
 set clipboard=unnamed
-set shell=zsh
-syntax enable
+set helplang=ja
+set syntax=on
+
+autocmd TermOpen * startinsert
+tnoremap <Esc> <C-\><C-n>
+noremap O :<C-u>call append(expand('.'), '')<Cr>j
 
 nmap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>
-
-nmap ff :NERDTreeToggle<CR>
-nmap <C-p> <Plug>AirlineSelectPrevTab
-nmap <C-n> <Plug>AirlineSelectNextTab
 
 nmap sj <C-w>j
 nmap sk <C-w>k
 nmap sl <C-w>l
 nmap sh <C-w>h
 nmap ss <C-w>s
-nmap sv <C-w>v
 
-inoremap { {}<LEFT>
-inoremap ( ()<LEFT>
-inoremap < <><LEFT>
-inoremap ' ''<LEFT>
-inoremap " ""<LEFT>
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
+let g:coc_filetype_map = {'tex': 'latex'}
 
-noremap O :<C-u>call append(expand('.'), '')<Cr>j
+let g:docker_compose_open_terminal_way = 'top'
 
-autocmd FileType tex inoremap $ $$<LEFT> 
-" let g:vimtex_compiler_latexmk = {'options': [ ]}
+let g:fern#renderer = 'nerdfont'
+nnoremap ff :Fern . -reveal=% -drawer -toggle -width=40<CR>
+colorscheme nightfox
 
-autocmd TermOpen * startinsert
-tnoremap <Esc> <C-\><C-n>
+let g:highlightedyank_highlight_duration = 150
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
