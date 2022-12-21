@@ -31,6 +31,7 @@ Jetpack 'machakann/vim-highlightedyank'
 Jetpack 'junegunn/vim-easy-align'
 Jetpack 'jiangmiao/auto-pairs'
 Jetpack 'ervandew/supertab'
+Jetpack 'akinsho/toggleterm.nvim', {'tag' : '*'}
 call jetpack#end()
 
 set number
@@ -41,6 +42,12 @@ set showmatch
 set wildmenu
 set ruler
 set ic
+set noswapfile
+set ignorecase
+set smartcase
+set wrapscan
+set incsearch
+set inccommand=split
 set laststatus=2
 set history=1000
 set encoding=utf8
@@ -48,7 +55,7 @@ set mouse=a
 set tabstop=4
 set shiftwidth=4
 set ttimeoutlen=50
-set clipboard=unnamed
+set clipboard+=unnamed
 set helplang=ja
 set syntax=on
 
@@ -77,3 +84,11 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#buffer_idx_format = {'0': '0 ','1': '1 ','2': '2 ','3': '3 ','4': '4 ','5': '5 ','6': '6 ','7': '7 ','8': '8 ','9': '9 '}
 
+autocmd TermEnter term://*toggleterm#*
+      \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+
+" By applying the mappings this way you can pass a count to your
+" mapping to open a specific window.
+" For example: 2<C-t> will open terminal 2
+nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
