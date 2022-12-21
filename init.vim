@@ -41,6 +41,12 @@ set showmatch
 set wildmenu
 set ruler
 set ic
+set noswapfile
+set ignorecase
+set smartcase
+set wrapscan
+set incsearch
+set inccommand=split
 set laststatus=2
 set history=1000
 set encoding=utf8
@@ -48,7 +54,7 @@ set mouse=a
 set tabstop=4
 set shiftwidth=4
 set ttimeoutlen=50
-set clipboard=unnamed
+set clipboard+=unnamed
 set helplang=ja
 set syntax=on
 
@@ -76,4 +82,5 @@ let g:highlightedyank_highlight_duration = 150
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#buffer_idx_format = {'0': '0 ','1': '1 ','2': '2 ','3': '3 ','4': '4 ','5': '5 ','6': '6 ','7': '7 ','8': '8 ','9': '9 '}
+
 
