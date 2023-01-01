@@ -1,37 +1,34 @@
 
-call jetpack#begin('~/.config/nvim/plugged')
-Jetpack 'neoclide/coc.nvim', {'branch': 'release'}
-Jetpack 'preservim/nerdtree'
-Jetpack 'vim-airline/vim-airline'
-Jetpack 'vim-airline/vim-airline-themes'
-Jetpack 'ryanoasis/vim-devicons'
-Jetpack 'tpope/vim-commentary'
-Jetpack 'tpope/vim-fugitive'
-Jetpack 'tpope/vim-surround'
-Jetpack 'airblade/vim-gitgutter'
-Jetpack 'lervag/vimtex'
-Jetpack 'vim-jp/vimdoc-ja'
-Jetpack 'nvim-lua/plenary.nvim'
-Jetpack 'nvim-telescope/telescope.nvim'
-Jetpack 'airblade/vim-rooter'
-Jetpack 'skanehira/translate.vim'
-Jetpack 'skanehira/docker-compose.vim'
-Jetpack 'EdenEast/nightfox.nvim'
-Jetpack 'junegunn/fzf.vim'
-Jetpack 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Jetpack 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
-Jetpack 'lambdalisue/fern.vim'
-Jetpack 'lambdalisue/fern-git-status.vim'
-Jetpack 'lambdalisue/nerdfont.vim'
-Jetpack 'lambdalisue/fern-renderer-nerdfont.vim'
-Jetpack 'lambdalisue/glyph-palette.vim'
-Jetpack 'vim-scripts/vim-auto-save'
-Jetpack 'skanehira/preview-markdown.vim'
-Jetpack 'machakann/vim-highlightedyank'
-Jetpack 'junegunn/vim-easy-align'
-Jetpack 'jiangmiao/auto-pairs'
-Jetpack 'ervandew/supertab'
-call jetpack#end()
+call plug#begin('~/.config/nvim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
+Plug 'lervag/vimtex'
+Plug 'vim-jp/vimdoc-ja'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'airblade/vim-rooter'
+Plug 'skanehira/translate.vim'
+Plug 'skanehira/docker-compose.vim'
+Plug 'EdenEast/nightfox.nvim'
+Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/fern-git-status.vim'
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/glyph-palette.vim'
+Plug 'vim-scripts/vim-auto-save'
+Plug 'skanehira/preview-markdown.vim'
+Plug 'machakann/vim-highlightedyank'
+Plug 'junegunn/vim-easy-align'
+Plug 'jiangmiao/auto-pairs'
+Plug 'ervandew/supertab'
+call plug#end()
 
 set number
 set hlsearch
@@ -73,10 +70,8 @@ nmap sv <C-w>v sl
 
 let g:fern#renderer = 'nerdfont'
 nnoremap ff :Fern . -reveal=% -drawer -toggle -width=40<CR>
-colorscheme nightfox
 
-let g:coc_filetype_map = {'tex': 'latex'}
-let g:docker_compose_open_terminal_way = 'top'
+colorscheme nightfox
 let g:highlightedyank_highlight_duration = 150
 
 let g:airline#extensions#tabline#enabled = 1
